@@ -14,7 +14,7 @@ import static co.com.choucair.retoQA.userinterface.HomePageUserInterface.*;
 public class ClickTheButton implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(Click.on(OPTIONS_EMPLEOS));
+        actor.attemptsTo(Click.on(OPTION_JOBS));
         Wait.stopExecution(1000);
         actor.attemptsTo(Click.on(BUTTON_COOKIES));
         actor.attemptsTo(Click.on(BUTTON_IR_AL_PORTAL_DE_EMPLEOS));

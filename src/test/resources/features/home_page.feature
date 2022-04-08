@@ -22,14 +22,14 @@ Feature: Validate main menu functionalities
       | message |
       |<message>|
     Examples:
-      | option    |message |
+      | option    |            message           |
       | Servicios |Digital Performance Management|
-      | Industrias|Banca|
-      | Formación |Programación cursos|
+      | Industrias|             Banca            |
+      | Formación |       Programación cursos    |
       | Comunidad |Pruebas rigurosas de las plataformas de pagos se requieren mas que nunca|
-      | Empleos   |¿Qué es ser Choucair?|
-      | Nosotros  |Nuestra Misión|
-      |Contáctenos|Contáctenos   |
+      | Empleos   |       ¿Qué es ser Choucair?  |
+      | Nosotros  |           Nuestra Misión     |
+      |Contáctenos|             Contáctenos      |
 
   @CP-004
   Scenario Outline: Test button functionality ir al portal de empleos
@@ -41,3 +41,20 @@ Feature: Validate main menu functionalities
     Examples:
       | message  |
       |¡Atención!Estas saliendo de choucairtesting.com|
+
+  @CP-006
+  Scenario Outline: Send a message by the Contactenos option
+    Given the user is on the web page
+    When enter in the option Contactenos and Fill out the form and then click the submit button
+      | nameAndLastName | whatsApp | email | city | company |themesOfInterest   | message |
+      |<nameAndLastName>|<whatsApp>|<email>|<city>|<company>|<themesOfInterest> |<message>|
+    Then the user should see this confirmation message <confirmationMessage>
+
+
+    Examples:
+      | nameAndLastName | whatsApp |      email        |  city  | company |   themesOfInterest     | message   |     confirmationMessage       |
+      | Juan Caicedo    |3117949317|    nn@gmail.com   |Apartado| Choucair|Cursos y Certificaciones|  Hello!   |The form was sent successfully.|
+      | Covid Marin     |3189568570|maria.m@hotmail.com|Medellin| Choucair| Servicios y Productos  |I'm ready  |The form was sent successfully.|
+
+
+

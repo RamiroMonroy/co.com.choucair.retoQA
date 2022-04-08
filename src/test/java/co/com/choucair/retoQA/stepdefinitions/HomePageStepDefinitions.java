@@ -4,12 +4,15 @@ import co.com.choucair.retoQA.interactions.OpenSource;
 import co.com.choucair.retoQA.models.DataMainMenu;
 import co.com.choucair.retoQA.models.DataTitle;
 import co.com.choucair.retoQA.models.HomePage;
+import co.com.choucair.retoQA.models.ShippingForm;
+import co.com.choucair.retoQA.questions.ConfirmationMessage;
 import co.com.choucair.retoQA.questions.MessageAlertValidate;
 import co.com.choucair.retoQA.questions.ValidateMessage;
 import co.com.choucair.retoQA.questions.ValidationMainMenu;
 
 
 import co.com.choucair.retoQA.tasks.ClickTheButton;
+import co.com.choucair.retoQA.tasks.FillForm;
 import co.com.choucair.retoQA.tasks.GoToOption;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -57,9 +60,22 @@ public class HomePageStepDefinitions {
         OnStage.theActorInTheSpotlight().attemptsTo(ClickTheButton.click());
     }
 
-    @Then("^the user should see this message (.*)$")
+    @Then("^the user should see this message$")
     public void theUserShouldSeeThisMessage(String message) {
         OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(MessageAlertValidate.validate(message)));
     }
+    //CP-006
+    @When("^enter in the option Contactenos and Fill out the form and then click the submit button$")
+    public void enterInTheOptionContactenosAndFillOutTheFormAndThenClickTheSubmitButton(List<ShippingForm>shippingForm) {
+        OnStage.theActorInTheSpotlight().attemptsTo(FillForm.fillOut(shippingForm.get(0)));
+    }
+
+    @Then("^the user should see this confirmation message (.*)$")
+    public void theUserShouldSeeThisConfirmationMessage(String message){
+        OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(ConfirmationMessage.isEqual(message)));
+    }
 
 }
+
+
+

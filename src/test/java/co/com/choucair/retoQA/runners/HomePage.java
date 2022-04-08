@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         features = "src\\test\\resources\\features\\home_page.feature",
         glue = "co.com.choucair.retoQA.stepdefinitions",
         snippets = SnippetType.CAMELCASE,
-        tags = "@CP-004"
+        tags = "@CP-006"
 )
 public class HomePage {
 }
