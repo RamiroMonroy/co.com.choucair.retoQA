@@ -4,10 +4,12 @@ import co.com.choucair.retoQA.interactions.OpenSource;
 import co.com.choucair.retoQA.models.DataMainMenu;
 import co.com.choucair.retoQA.models.DataTitle;
 import co.com.choucair.retoQA.models.HomePage;
+import co.com.choucair.retoQA.questions.MessageAlertValidate;
 import co.com.choucair.retoQA.questions.ValidateMessage;
 import co.com.choucair.retoQA.questions.ValidationMainMenu;
 
 
+import co.com.choucair.retoQA.tasks.ClickTheButton;
 import co.com.choucair.retoQA.tasks.GoToOption;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -48,6 +50,16 @@ public class HomePageStepDefinitions {
     @Then("^the user should see this title$")
     public void theUserShouldSeeThisTitle(List<DataTitle> dataTitle) {
         OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(ValidateMessage.isEqual(dataTitle.get(0))));
+    }
+    //CP-004
+    @When("^enter in the option Empleos and click the button ir al portal de empleos$")
+    public void enterInTheOptionEmpleosAndClickTheButtonIrAlPortalDeEmpleos() {
+        OnStage.theActorInTheSpotlight().attemptsTo(ClickTheButton.click());
+    }
+
+    @Then("^the user should see this message (.*)$")
+    public void theUserShouldSeeThisMessage(String message) {
+        OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(MessageAlertValidate.validate(message)));
     }
 
 }

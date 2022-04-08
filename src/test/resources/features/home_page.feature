@@ -31,4 +31,13 @@ Feature: Validate main menu functionalities
       | Nosotros  |Nuestra Misión|
       |Contáctenos|Contáctenos   |
 
-  
+  @CP-004
+  Scenario Outline: Test button functionality ir al portal de empleos
+    Given the user is on the web page
+    When enter in the option Empleos and click the button ir al portal de empleos
+
+    Then the user should see this message <message>
+
+    Examples:
+      | message  |
+      |¡Atención!Estas saliendo de choucairtesting.com|

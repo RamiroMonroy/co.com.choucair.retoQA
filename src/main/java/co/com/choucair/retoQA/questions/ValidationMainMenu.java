@@ -24,8 +24,6 @@ public class ValidationMainMenu implements Question<Boolean> {
         data.setEmpleos(OPTIONS_MAIN_MENU.resolveAllFor(actor).get(4).getText());
         data.setNosotros(OPTIONS_MAIN_MENU.resolveAllFor(actor).get(5).getText());
         data.setContactenos(OPTIONS_MAIN_MENU.resolveAllFor(actor).get(6).getText());
-        System.out.println("String data: "+data.toString());
-        System.out.println("String datamain: "+dataMainMenu.toString());
         return dataMainMenu.toString().equals(data.toString());
     }
     public static ValidationMainMenu isVisible(DataMainMenu dataMainMenu){
