@@ -25,6 +25,7 @@ import net.serenitybdd.screenplay.actors.OnlineCast;
 import java.util.List;
 
 import static co.com.choucair.retoQA.utils.Constants.ACTOR;
+import static co.com.choucair.retoQA.utils.Constants.ZERO;
 
 public class HomePageStepDefinitions {
 
@@ -42,17 +43,17 @@ public class HomePageStepDefinitions {
 
     @Then("^the user should see the options of main menu$")
     public void theUserShouldSeeTheOptionsOfMainMenu(List<DataMainMenu> data) {
-        OnStage.theActorInTheSpotlight().should((GivenWhenThen.seeThat(ValidationMainMenu.isVisible(data.get(0)))));
+        OnStage.theActorInTheSpotlight().should((GivenWhenThen.seeThat(ValidationMainMenu.isVisible(data.get(ZERO)))));
     }
     //CP-002
     @When("^enter in a option of the main menu$")
     public void enterInAOptionOfTheMainMenu(List<DataTitle> dataTitle){
-        OnStage.theActorInTheSpotlight().attemptsTo(GoToOption.go(dataTitle.get(0)));
+        OnStage.theActorInTheSpotlight().attemptsTo(GoToOption.go(dataTitle.get(ZERO)));
     }
 
     @Then("^the user should see this title$")
     public void theUserShouldSeeThisTitle(List<DataTitle> dataTitle) {
-        OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(ValidateMessage.isEqual(dataTitle.get(0))));
+        OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(ValidateMessage.isEqual(dataTitle.get(ZERO))));
     }
     //CP-004
     @When("^enter in the option Empleos and click the button ir al portal de empleos$")
@@ -60,14 +61,14 @@ public class HomePageStepDefinitions {
         OnStage.theActorInTheSpotlight().attemptsTo(ClickTheButton.click());
     }
 
-    @Then("^the user should see this message$")
+    @Then("^the user should see this message (.*)$")
     public void theUserShouldSeeThisMessage(String message) {
         OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(MessageAlertValidate.validate(message)));
     }
     //CP-006
     @When("^enter in the option Contactenos and Fill out the form and then click the submit button$")
     public void enterInTheOptionContactenosAndFillOutTheFormAndThenClickTheSubmitButton(List<ShippingForm>shippingForm) {
-        OnStage.theActorInTheSpotlight().attemptsTo(FillForm.fillOut(shippingForm.get(0)));
+        OnStage.theActorInTheSpotlight().attemptsTo(FillForm.fillOut(shippingForm.get(ZERO)));
     }
 
     @Then("^the user should see this confirmation message (.*)$")

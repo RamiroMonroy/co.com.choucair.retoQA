@@ -6,16 +6,14 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 
-import net.serenitybdd.screenplay.actions.ScrollToTarget;
-import net.serenitybdd.screenplay.actions.ScrollToWebElement;
-
 import static co.com.choucair.retoQA.userinterface.HomePageUserInterface.*;
+import static co.com.choucair.retoQA.utils.Constants.CONSTANTS_TIME;
 
 public class ClickTheButton implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(Click.on(OPTION_JOBS));
-        Wait.stopExecution(1000);
+        Wait.stopExecution(CONSTANTS_TIME);
         actor.attemptsTo(Click.on(BUTTON_COOKIES));
         actor.attemptsTo(Click.on(BUTTON_IR_AL_PORTAL_DE_EMPLEOS));
     }

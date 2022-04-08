@@ -19,8 +19,6 @@ public class HomePageUserInterface {
     public static final Target INPUT_CITY= Target.the("input_city").locatedBy("//input[@id='form-field-field_c3f91b8']");
     public static final Target INPUT_COMPANY= Target.the("input_company").locatedBy("//input[@id='form-field-empresa']");
     public static final Target SELECT_THEMES_OF_INTEREST= Target.the("select_themes_of_interest").locatedBy("//select[@id='form-field-Tipodeservicio']");
-    public static final Target OPTION_COURSES_AND_CERTIFICATIONS= Target.the("option_courses_and_certifications").locatedBy("//select[@id='form-field-Tipodeservicio']/option[1]");
-    public static final Target OPTION_SERVICES_AND_PRODUCTS= Target.the("option_services_and_products").locatedBy("//select[@id='form-field-Tipodeservicio']/option[2]");
     public static final Target TEXTAREA_MESSAGE= Target.the("textarea_message").locatedBy("//textarea[@id='form-field-message']");
     public static final Target BUTTON_SEND= Target.the("button_send").locatedBy("//button[@class='elementor-button elementor-size-sm']");
     public static final Target CONFIRMATION_MESSAGE= Target.the("confirmation_message").locatedBy("//div[@class='elementor-message elementor-message-success']");

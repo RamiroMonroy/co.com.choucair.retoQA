@@ -7,6 +7,7 @@ import net.serenitybdd.screenplay.Question;
 
 
 import static co.com.choucair.retoQA.userinterface.HomePageUserInterface.TITLE_OPTIONS;
+import static co.com.choucair.retoQA.utils.Constants.CONSTANTS_TIME;
 
 public class ValidateMessage implements Question<Boolean> {
 
@@ -18,7 +19,7 @@ public class ValidateMessage implements Question<Boolean> {
 
     @Override
     public Boolean answeredBy(Actor actor) {
-        Wait.stopExecution(1000);
+        Wait.stopExecution(CONSTANTS_TIME);
         String title=TITLE_OPTIONS.of(String.valueOf(dataTitle.getMessage())).resolveFor(actor).getText();
         return title.equals(dataTitle.getMessage());
     }
