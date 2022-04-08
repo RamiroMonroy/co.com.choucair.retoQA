@@ -12,4 +12,23 @@ Feature: Validate main menu functionalities
       | servicios | industrias | formacion | comunidad | empleos | nosotros | contactenos |
       | Servicios | Industrias | Formación | Comunidad | Empleos | Nosotros | Contáctenos |
 
+  @CP-002
+  Scenario Outline: Validate that the page is correct
+    Given the user is on the web page
+    When enter in a option of the main menu
+      | option |
+      |<option>|
+    Then the user should see this title
+      | message |
+      |<message>|
+    Examples:
+      | option    |message |
+      | Servicios |Digital Performance Management|
+      | Industrias|Banca|
+      | Formación |Programación cursos|
+      | Comunidad |Pruebas rigurosas de las plataformas de pagos se requieren mas que nunca|
+      | Empleos   |¿Qué es ser Choucair?|
+      | Nosotros  |Nuestra Misión|
+      |Contáctenos|Contáctenos   |
+
   
